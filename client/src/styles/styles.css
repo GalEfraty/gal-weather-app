@@ -33,6 +33,10 @@ tbody{
     margin-top: 5%;
 }
 
+.landing-container{
+  margin-top: 5%;
+}
+
 .error-message{
     margin-top: 5%;
 }
@@ -59,4 +63,4 @@ tbody{
   .App-link {
     color: #09d3ac;
   }
-  
+

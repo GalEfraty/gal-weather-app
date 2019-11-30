@@ -4,6 +4,7 @@ import axios from "axios";
 import "../styles/styles.css";
 import WeatherDashboard from "./WeatherDashboard";
 import Header from "./Header";
+import LandingPage from "./LandingPage";
 
 import userContext from "../context/userContext";
 
@@ -27,7 +28,7 @@ const WeatherApp = () => {
       <userContext.Provider value={{loggedInUser}}>
         <Header />
         <BrowserRouter>
-          <Route path={"/"} component={WeatherDashboard} exact />
+          <Route path={"/"} component={loggedInUser ? WeatherDashboard : LandingPage} exact />
         </BrowserRouter>
       </userContext.Provider>
     </div>
