@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
 import ForecastSpinner from "./ForecastSpinner";
 import ErrorMessage from "./ErrorMessage";
+import userContext from "../context/userContext";
 
 const WeatherDashboard = () => {
   const [todayWeatherState, setTodayWeather] = useState("");
   const [locationState, setLocation] = useState("");
   const [searchStatusState, setSearchStatus] = useState(false);
   const [errorMessageState, setErrorMessage] = useState("");
+
+  const { loggedInUser } = useContext(userContext);
 
   const onDataClose = () => {
     setTodayWeather("");
@@ -33,6 +36,7 @@ const WeatherDashboard = () => {
         adress: city
       }
     });
+    //console.log( "the weather response", weatherResponse)
 
     if (weatherResponse.data.error) {
       setSearchStatus(false);
@@ -43,10 +47,17 @@ const WeatherDashboard = () => {
     setTodayWeather(forecastData.daily.data[0]);
     setLocation(geoData);
     setSearchStatus(false);
+
+    loggedInUser.credits -= 1;
+    try {
+      await axios.put("/api/decrementcredits");
+    } catch (error) {
+      setErrorMessage("something wrong with the website, try again soon");
+    }
   };
 
   return (
-    <div className="container border border-primary search-wrapper rounded shadow p-3 search-form-wrapper ">
+    <div className="container border border-primary search-wrapper rounded shadow p-3 main-wrapper ">
       <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label>Search City:</label>

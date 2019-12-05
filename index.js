@@ -23,6 +23,7 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 require("./routes/forecastRoutes")(app);
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   //express will serve up production assets (js or css file like main.js or main.css)

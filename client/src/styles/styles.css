@@ -29,12 +29,8 @@ tbody{
     margin-top: 5%;
 }
 
-.search-form-wrapper{
+.main-wrapper{
     margin-top: 5%;
-}
-
-.landing-container{
-  margin-top: 5%;
 }
 
 .error-message{
@@ -63,4 +59,3 @@ tbody{
   .App-link {
     color: #09d3ac;
   }
-

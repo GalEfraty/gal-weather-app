@@ -1,8 +1,10 @@
 const geoLocation = require("../services/geolocation");
 const forecast = require("../services/forecast");
+const requireLogin = require("../middlewares/requireLogin");
+const requireCredits = require("../middlewares/requireCredits")
 
 module.exports = app => {
-  app.get("/api/weather", async (req, res) => {
+  app.get("/api/weather", requireLogin, requireCredits, async (req, res) => {
     const { adress } = req.query;
     const geoData = await geoLocation.getLocation(adress);
     if (geoData.error) {
