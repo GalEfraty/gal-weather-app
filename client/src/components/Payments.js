@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import axios from "axios"
+import axios from "axios";
+import userContext from "../context/userContext";
 
 const Payments = () => {
-    const handleToken = async(token) => {
-        const res = await axios.post("/api/stripe", token);
-        console.log(res)
-    }
+  const { fetchUser } = useContext(userContext);
+
+  const handleToken = async token => {
+    await axios.post("/api/stripe", token);
+    fetchUser();
+  };
   return (
     <StripeCheckout
       name="Weather App"

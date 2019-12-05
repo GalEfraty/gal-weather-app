@@ -26,7 +26,7 @@ const WeatherApp = () => {
 
   return (
     <div className="App">
-      <userContext.Provider value={{loggedInUser}}>
+      <userContext.Provider value={{loggedInUser, fetchUser}}>
         <BrowserRouter>
           <Header />
           <Route path={"/"} component={loggedInUser ? WeatherDashboard : LandingPage} exact />
