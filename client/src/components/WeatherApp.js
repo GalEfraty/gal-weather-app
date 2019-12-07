@@ -5,6 +5,7 @@ import "../styles/styles.css";
 import WeatherDashboard from "./WeatherDashboard";
 import Header from "./Header";
 import LandingPage from "./LandingPage";
+import Footer from "./Footer";
 import Profile from "./Profile"
 
 import userContext from "../context/userContext";
@@ -32,6 +33,7 @@ const WeatherApp = () => {
           <Route path={"/"} component={loggedInUser ? WeatherDashboard : LandingPage} exact />
           {loggedInUser && <Route path={"/profile"} component={Profile} exact/>}
         </BrowserRouter>
+        <Footer />
       </userContext.Provider>
     </div>
   );

@@ -13,17 +13,18 @@ const Forecast = ({
   },
   place: { location },
   today,
-  onClose
+  onClose,
+  onCloseAndSendEmail
 }) => {
   return (
-    <div className="card forecast-card">
+    <div className="card forecast-card position-relative">
       <h5 className="card-header">
         {today ? "today" : moment(time * 1000).format("dddd")} <br></br>{" "}
         {location && location}
       </h5>
       <div className="card-body">
         <h5 className="card-title">{summary}</h5>
-        <div >
+        <div>
           <table className="table">
             <tbody>
               <tr>
@@ -57,9 +58,14 @@ const Forecast = ({
             </tbody>
           </table>
         </div>
-        <button onClick={onClose} className="btn btn-primary">
-          close
-        </button>
+        <div>
+          <button onClick={onClose} className="btn btn-primary btn-forecast">
+            close
+          </button>
+          <button onClick={onCloseAndSendEmail} className="btn btn-primary btn-forecast">
+            close and send email
+          </button>
+        </div>
       </div>
     </div>
   );

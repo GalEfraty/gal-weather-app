@@ -17,6 +17,12 @@ const WeatherDashboard = () => {
     setTodayWeather("");
   };
 
+  const onCloseAndSendEmail = () => {
+    onDataClose()
+    const email = loggedInUser.emails[0]
+    console.log("sending email to ", email)
+  }
+
   const handleOnSubmit = async e => {
     e.preventDefault();
 
@@ -57,7 +63,7 @@ const WeatherDashboard = () => {
   };
 
   return (
-    <div className="container border border-primary search-wrapper rounded shadow p-3 main-wrapper ">
+    <div className="container border border-primary search-wrapper rounded shadow p-3  main-wrapper  overflow-auto position-relative">
       <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label>Search City:</label>
@@ -79,6 +85,7 @@ const WeatherDashboard = () => {
           place={locationState}
           today={false}
           onClose={onDataClose}
+          onCloseAndSendEmail={onCloseAndSendEmail}
         />
       )}
       {errorMessageState && <ErrorMessage message={errorMessageState} />}
