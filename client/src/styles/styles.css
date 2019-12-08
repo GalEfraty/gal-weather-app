@@ -17,7 +17,7 @@ tbody{
 
 .main-wrapper{
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 8%;
     position:relative;
 }
 
@@ -51,4 +51,10 @@ tbody{
 .btn-forecast{
   margin-left: 5%;
   margin-right: 5%;
+}
+
+@media screen and (max-width: 386px){
+  .btn-close-mail{
+    margin-top: 4%;
+  }
 }

@@ -62,7 +62,7 @@ const Forecast = ({
           <button onClick={onClose} className="btn btn-primary btn-forecast">
             close
           </button>
-          <button onClick={onCloseAndSendEmail} className="btn btn-primary btn-forecast">
+          <button onClick={onCloseAndSendEmail} className="btn btn-primary btn-forecast btn-close-mail">
             close and send email
           </button>
         </div>
