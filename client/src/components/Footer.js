@@ -6,6 +6,12 @@ const Footer = () => {
     <footer className=" container-fluid text-white bg-primary fixed-bottom footer-wrapper">
       <p className="font-weight-light footer_my-name">Gal Efraty </p>
       <a
+      href="mailto:gal.efraty@gmail.com"
+      className="text-decoration-none text-white"
+    >
+      <i className="fas fa-envelope"></i>
+    </a>
+      <a
         href="https://www.linkedin.com/in/gal-efraty-b0a422150"
         className="text-decoration-none text-white"
       >

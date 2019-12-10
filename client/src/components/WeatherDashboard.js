@@ -17,11 +17,23 @@ const WeatherDashboard = () => {
     setTodayWeather("");
   };
 
-  const onCloseAndSendEmail = () => {
-    onDataClose()
-    const email = loggedInUser.emails[0]
-    console.log("sending email to ", email)
-  }
+  const onCloseAndSendEmail = async () => {
+    onDataClose();
+
+    if (loggedInUser.emails[0] && todayWeatherState) {
+      try {
+        await axios.get("/api/sendForecastEmail", {
+          params: {
+            location: locationState,
+            forecast: todayWeatherState
+          }
+        });
+      } catch (error) {
+        setErrorMessage("couldnt send email, try again soon");
+        console.log(error);
+      }
+    }
+  };
 
   const handleOnSubmit = async e => {
     e.preventDefault();

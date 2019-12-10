@@ -1,14 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import "../styles/styles.css";
 
 const ErrorMessage = ({ message }) => {
   //console.log(message);
   return (
-    <div className="alert alert-info error-message" role="alert">
-      <i className="fas fa-exclamation"></i>
-      <br></br>
-      {message}
-    </div>
+    <Fragment>
+      <div className="alert alert-info error-message" role="alert">
+        <i className="fas fa-exclamation"></i>
+        <br></br>
+        {message}
+      </div>
+      <Link to="/profile">
+        <button type="submit" className="btn btn-outline-primary">
+          Go to profile
+        </button>
+      </Link>
+    </Fragment>
   );
 };
 
