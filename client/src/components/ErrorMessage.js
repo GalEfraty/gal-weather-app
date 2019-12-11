@@ -13,7 +13,7 @@ const ErrorMessage = ({ message }) => {
       </div>
       <Link to="/profile">
         <button type="submit" className="btn btn-outline-primary">
-          Go to profile
+          Go to profile and add credit
         </button>
       </Link>
     </Fragment>
